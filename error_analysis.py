@@ -2,7 +2,14 @@
 
 
 import pandas as pd
+import argparse
+import csv
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('infile', help='infile')
+parser.add_argument('outfile', help='infile')
+args = parser.parse_args()
 
 def error_analysis(infile, outfile):
 
@@ -101,3 +108,6 @@ def error_analysis(infile, outfile):
 
         
         df.to_csv(sink, sep='\t')
+        
+  if __name__ == '__main__':
+    error_analysis(args.infile, args.outfile)
